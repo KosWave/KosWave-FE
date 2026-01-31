@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/landing/Landing";
+import MainPage from "./pages/main/Main";
+import Socialpage from "./pages/social/Social";
+import StockPage from "./pages/stock/Stock";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import ErrorPage from "./components/common/error/ErrorPage";
+import NotFoundPage from "./components/common/error/NotFoundPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const queryClient = new QueryClient();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <Router>
+            {/* <ErrorBoundaryWrapper> */}
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/main" element={<MainPage />} />
+              <Route path="/main/social" element={<Socialpage />} />
+              <Route path="/main/stock" element={<StockPage />} />
+              <Route path="/error" element={<ErrorPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+            {/* </ErrorBoundaryWrapper> */}
+          </Router>
+        </QueryClientProvider>
+      </Provider>
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -13,7 +13,7 @@ function ErrorPage() {
   return (
     <div
       style={{
-        backgroundColor: "#fafcff",
+        backgroundColor: "#fffcf9",
         width: "100%",
         height: "100%",
       }}
@@ -42,8 +42,6 @@ function ErrorPage() {
               <br />
               나중에 다시 시도해주세요.
             </div>
-
-            <img src="/assets/images/error-icon.png"></img>
           </div>
         </div>
       </div>

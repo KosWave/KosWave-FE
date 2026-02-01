@@ -30,7 +30,7 @@ export default function ContentHeader(props) {
               margin: "0 0.3rem",
             }}
           >
-            "{props.keyword}"
+            {props.keyword ? `"${props.keyword}"` : ""}
           </strong>
           <span style={{ marginTop: "5px", display: "flex" }}>
             {props.description}

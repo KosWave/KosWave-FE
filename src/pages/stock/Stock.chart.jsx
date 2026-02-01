@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
+import StChart from '../stock/detail/chart/StockChart';
 import { useSelector } from "react-redux";
 import StockInfoDetail from "./StockInfoDetail";
 import { StyledStockParentDiv } from "./Stock.chart.style";
@@ -7,6 +8,8 @@ import { StyledStockParentDiv } from "./Stock.chart.style";
 export default function StockChart(props) {
   const keyword = useSelector((state) => state.keyword.keyword);
   const darkMode = useSelector((state) => state.theme.darkMode);
+  const stockMode = useSelector((state) => state.stock.stockMode);
+
 
   const [categories, setCategories] = useState([]);
   const [series, setSeries] = useState([
@@ -148,13 +151,18 @@ export default function StockChart(props) {
 
   return (
     <StyledStockParentDiv darkMode={darkMode}>
-      <Chart
+      {
+        stockMode ?
+        <StChart symbol={props.curCompanyCode} />
+        :
+        <Chart
         options={options}
         series={series}
         type="area"
         width="790"
-        height="400"
+        height="585"
       />
+      }
       <StockInfoDetail
         info={props.stockDetails}
         curCompanyCode={props.curCompanyCode}

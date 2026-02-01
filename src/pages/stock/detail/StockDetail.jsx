@@ -16,7 +16,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Maintab from "./maintab/Maintab";
 import Pricetab from "./pricetab/Pricetab";
 import Newstab from "./newstab/Newstab";
-import Header from "../../../components/common/header/Header";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";

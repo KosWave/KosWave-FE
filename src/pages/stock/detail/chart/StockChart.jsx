@@ -28,7 +28,7 @@ export const StockChart = ({symbol}) => {
 
   useEffect(() => {
     fetchChartData(formatDate(startDate), formatDate(endDate), activeTab); // Fetch initial chart data based on active tab
-  },[activeTab, endDate, startDate]);
+  },[activeTab, endDate, startDate, symbol]);
 
   const fetchChartData = async (startDate, endDate, period) => {
     let apiUrl = `/api/period-price?symbol=${symbol}&startDate=${startDate}&endDate=${endDate}&period=${period}`;
@@ -118,8 +118,7 @@ export const StockChart = ({symbol}) => {
   };
 
   return (
-    <div id="chart">
-     
+    <div id="chart" style={{ width: "790px", height: "600px", margin: "0 auto" }}>
      <FlexContainer>
       <span >
         <Label darkMode={darkMode}>시작 날짜:</Label>
@@ -169,7 +168,6 @@ export const StockChart = ({symbol}) => {
         series={series}
         type="candlestick"
         height={400}
-        
       />
     </div>
   );

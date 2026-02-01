@@ -7,7 +7,7 @@ export const StyledStockDiv = styled.div`
 `;
 
 export const StyledStockRightDiv = styled.div`
-  background-color: ${(props) => (props.darkMode ? "#282828" : "#F9FCFF")};
+  background-color: ${(props) => (props.darkMode ? "#282828" : "#fffcf9")};
   overflow-y: scroll;
   display: flex;
   flex-direction: column;

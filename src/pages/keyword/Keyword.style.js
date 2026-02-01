@@ -3,7 +3,7 @@ import styled , {keyframes, css} from "styled-components";
 
 
 export const StyledKeywordDiv = styled.div`
-  background-color: ${(props) => (props.darkMode ? "#282828" : "FAFCFF")};
+  background-color: ${(props) => (props.darkMode ? "#282828" : "#FFF9F0")};
   width: 100%;
   display: flex;
   flex-direction: column;

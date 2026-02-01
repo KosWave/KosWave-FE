@@ -12,6 +12,6 @@ export const CustomCloseButton = styled.button`
   cursor: pointer;
   
   &:hover {
-    color: #43D2FF; // Change to the color you want on hover
+    color: #E56717; // Change to the color you want on hover
   }
 `;

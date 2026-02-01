@@ -134,7 +134,7 @@ export default function YoutubeItem() {
               {isGraphVisible ? (
                 isLoading ? (
                   <StyledLoadingDiv darkMode={darkMode}>
-                    <ClipLoader color={"#43D2FF"} loading={true} />
+                    <ClipLoader color={"#E56717"} loading={true} />
                   </StyledLoadingDiv>
                 ) : (
                   <YoutubeGraph data={data?.default?.timelineData || []} />

@@ -24,7 +24,7 @@ export default function LandingSearch() {
   const navigate = useNavigate();
   const inputRef = useRef(null);
 
-  const keywords = ["불닭", "신한지주", "반도체", "빼빼로", "선풍기", "에어컨"];
+  const keywords = ["취업", "코스피", "반도체", "날씨", "롱패딩", "히터"];
 
   const onChangeText = (e) => {
     const { value } = e.target;

@@ -8,7 +8,7 @@ export default function Loading() {
       <MutatingDots
         height={80}
         width={80}
-        color= "#43D2FF"
+        color= "#E56717"
         wrapperStyle={{}}
         wrapperClass=""
         visible={true}

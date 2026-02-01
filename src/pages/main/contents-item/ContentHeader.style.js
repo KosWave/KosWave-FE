@@ -27,7 +27,7 @@ export const GlowIcon = styled.div`
     transition: filter 0.3s ease-in-out;
 
     &:hover {
-      filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #43D2FF)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
+      filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #E56717)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
     }
   }
 `;

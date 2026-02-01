@@ -44,7 +44,7 @@ export const StyledSidebarItemDiv = styled.div`
   margin-bottom: 20px;
   padding: 10px 60px;
   cursor: pointer;
-  background-color: ${({ active }) => (active ? "#43d2ff" : "transparent")};
+  background-color: ${({ active }) => (active ? "#E56717" : "transparent")};
   border-radius: ${({ active }) => (active ? "50px" : "0")};
 
   & span {

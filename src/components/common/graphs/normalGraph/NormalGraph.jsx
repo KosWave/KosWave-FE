@@ -403,7 +403,7 @@ const NormalGraph = ({
   return !data ? (
     <div
       style={{
-        width: "600px",
+        width: "500px",
         height: "400px",
         textAlign: "center",
         alignContent: "center",

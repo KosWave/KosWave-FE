@@ -15,12 +15,12 @@ export const StyledNavItem = styled.a`
   text-decoration: none;
   font-size: 15px;
   color: ${(props) =>
-    props.active ? "#44D2FF" : props.darkMode ? "white" : "rgba(0, 0, 0, 0.4)"};
+    props.active ? "#E56717" : props.darkMode ? "white" : "rgba(0, 0, 0, 0.4)"};
   padding: 8px 30px;
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 10px;
-  border-color: ${(props) => (props.active ? "#43d2ff" : "")};
+  border-color: ${(props) => (props.active ? "#E56717" : "")};
   background-color: ${(props) =>
     props.active
       ? props.darkMode
@@ -40,6 +40,6 @@ export const StyledNavItem = styled.a`
         : "rgba(0, 0, 0, 0.04)"};
     text-decoration: none;
     color: ${(props) =>
-      props.active ? "#43d2ff" : props.darkMode ? "white" : "black"};
+      props.active ? "#E56717" : props.darkMode ? "white" : "black"};
   }
 `;

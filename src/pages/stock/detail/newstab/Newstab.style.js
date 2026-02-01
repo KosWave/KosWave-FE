@@ -56,7 +56,7 @@ export const StyledLink = styled(Link)`
     text-decoration: none; 
     opacity: 0.8; 
     ${NewsTitle} {
-      color: #43D2FF;
+      color: #E56717;
     }
 
   }

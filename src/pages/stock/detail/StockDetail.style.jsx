@@ -99,7 +99,7 @@ export const LinkTo=styled.span`
   color: ${(props) => (props.darkMode ? "#F2F2F2" : "#00537a")};
   transition: filter 0.3s ease-in-out;
   &:hover {
-    filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #43D2FF)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
+    filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #E56717)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
   }
 
 `
@@ -115,7 +115,7 @@ export const GlowIcon = styled.div`
     height: 40px;
    
     &:hover {
-      filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #43D2FF)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
+      filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #E56717)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
     }
   }
   span{
@@ -125,7 +125,7 @@ export const GlowIcon = styled.div`
     font-style:italic;
     &:hover {
      
-      filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #43D2FF)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
+      filter: ${(props) => (props.darkMode ? "drop-shadow(0 0 3px #E56717)" : "drop-shadow(0 0 3px rgba(0, 83, 122, 0.8))")};
     }
   }
 `;

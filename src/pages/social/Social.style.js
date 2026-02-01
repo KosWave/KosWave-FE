@@ -12,5 +12,5 @@ export const StyledSocialInfoDiv = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  background-color: ${(props) => (props.darkMode ? "#282828" : "#F9FCFF")};
+  background-color: ${(props) => (props.darkMode ? "#282828" : "#fffcf9")};
 `;

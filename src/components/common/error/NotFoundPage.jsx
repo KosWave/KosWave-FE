@@ -4,7 +4,7 @@ export default function NotFoundPage() {
   return (
     <div
       style={{
-        backgroundColor: "#fafcff",
+        backgroundColor: "#fffcf9",
         width: "100%",
         height: "100%",
       }}
@@ -33,8 +33,6 @@ export default function NotFoundPage() {
               <br />
               정상적인 경로로 다시 접속해주세요.
             </div>
-
-            <img src="/assets/images/not-found-icon.png"></img>
           </div>
         </div>
       </div>

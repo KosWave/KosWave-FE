@@ -3,7 +3,6 @@ import { StyledMainContentDiv } from "./Main.style";
 import ContentHeader from "./contents-item/ContentHeader";
 import NormalGraph from "../../components/common/graphs/normalGraph/NormalGraph";
 import { Contents } from "./contents-item/Contents.style";
-
 import { useQuery } from "react-query";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
@@ -117,7 +116,6 @@ export default function SearchContent({ keyword }) {
     <StyledMainContentDiv darkMode={darkMode}>
       <ContentHeader
         imgUrl="/assets/images/search.svg"
-        keyword={keyword}
         description={
           !isLoading ? (
             <div
@@ -126,7 +124,7 @@ export default function SearchContent({ keyword }) {
               {Math.round(percent) > 0 && (
                 <>
                   <p style={{ marginTop: "10px" }}>
-                    의 검색량이 전 주에 비해
+                    검색량이 전 주에 비해
                     <strong
                       style={{
                         fontSize: "30px",
@@ -153,7 +151,7 @@ export default function SearchContent({ keyword }) {
               {Math.round(percent) < 0 && (
                 <>
                   <p style={{ marginTop: "10px" }}>
-                    의 검색량이 전 주에 비해
+                    검색량이 전 주에 비해
                     <strong
                       style={{
                         fontSize: "30px",
@@ -179,13 +177,13 @@ export default function SearchContent({ keyword }) {
                 </>
               )}
               {Math.round(percent) === 0 && (
-                <>의 이번주 검색량이 전 주와 동일해요.</>
+                <> 이번주 검색량이 전 주와 동일해요.</>
               )}
-              {Number.isNaN(percent) && <>에 대한 검색량을 불러올 수 없어요.</>}
+              {Number.isNaN(percent) && <> 검색량을 불러올 수 없어요.</>}
             </div>
           ) : (
             <>
-              <p>의 검색량을 불러오는 중이에요...</p>
+              <p> 검색량을 불러오는 중이에요...</p>
             </>
           )
         }
@@ -242,7 +240,7 @@ export default function SearchContent({ keyword }) {
               color={[66, 133, 244]}
               lineSpeed={0.05}
               barSpeed={0.05}
-              width={600}
+              width={500}
               darkMode={darkMode}
             />
           )
@@ -256,7 +254,7 @@ export default function SearchContent({ keyword }) {
               justifyContent: "center",
             }}
           >
-            <ClipLoader color="#43d2ff"></ClipLoader>
+            <ClipLoader color="#E56717"></ClipLoader>
           </div>
         )}
       </Contents>

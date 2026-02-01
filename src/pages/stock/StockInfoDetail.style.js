@@ -34,7 +34,7 @@ export const StyledInfoDetailDiv = styled.div`
     font-weight: normal;
     color: gray;
   }
-
+F
   p {
     margin-bottom: 0px;
   }
@@ -57,6 +57,30 @@ export const StyledStockDetailTime = styled.span`
   margin-left: 10px;
   font-weight: 600 !important;
   color: ${(props) => (props.darkMode ? "darkgray" : "blaxk")};
+`;
+
+export const StyledToggleContainer = styled.div`
+  width: 40px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: ${({ isDarkMode, isStockMode }) => (isDarkMode ^ isStockMode ? "#47484A" : "#ddd")};
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+  margin: 0px 5px;
+`;
+
+export const StyledToggleCircle = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  left: ${({ isStockMode }) => (isStockMode ? "calc(100% - 22.5px)" : "2.5px")};
+  transition: left 0.3s;
 `;
 
 export const StyledMoveDetailDiv = styled.div`

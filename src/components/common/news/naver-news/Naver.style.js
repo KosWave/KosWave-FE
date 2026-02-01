@@ -57,7 +57,7 @@ export const StyledNewsItemDiv = styled.div`
     background-color: ${(props) =>
       props.darkMode ? "none" : "rgba(0, 0, 0, 0.04)"};
     box-shadow: ${(props) =>
-      props.darkMode ? "0 0 0 1px inset #43D2FF" : "transparent"};
+      props.darkMode ? "0 0 0 1px inset #E56717" : "transparent"};
   }
 `;
 

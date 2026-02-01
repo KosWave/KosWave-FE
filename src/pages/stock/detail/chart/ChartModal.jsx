@@ -1,5 +1,3 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'; // Import Modal from react-bootstrap
 import StockChart from './StockChart';
 import { useSelector } from 'react-redux';
@@ -26,12 +24,7 @@ function ChartModal({ show, onHide, code, name}) {
 
         <Modal.Body
         style={{backgroundColor:darkMode ? "#282828" : "white"}}>
-         
-        
-          
-          <StockChart symbol={code} />
-          
-          
+          <StockChart symbol={code} />    
         </Modal.Body>
       </Modal>
     </>

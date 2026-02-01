@@ -17,7 +17,7 @@ export const StyledContentsDiv = styled.div`
   margin: 4px;
   
   &:hover {
-    border-color: #43d2ff;
+    border-color: #E56717;
   }
 `;
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const StyledNaverGroupDiv = styled.div`
   backgorund-color: white;
-  border: 2px solid #43d2ff;
+  border: 2px solid #E56717;
   border-radius: 50px;
   font-style: bold;
   text-align: center;

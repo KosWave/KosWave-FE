@@ -6,7 +6,6 @@ import {
   StyledHomeIcon,
   StyledAnalyzeIcon,
   StyledRelateIcon,
-  StyledKeywordIcon,
   StyledHeaderFillMoonIcon,
   StyledHeaderFillSunIcon,
   StyledSidebarInfoDiv,
@@ -91,15 +90,6 @@ export default function Sidebar() {
             >
               <StyledRelateIcon />
               <span>연관 주식</span>
-            </StyledSidebarItemDiv>
-          </Link>
-          <Link to={`/main/keyword?${params}`}>
-            <StyledSidebarItemDiv
-              active={isActive(`/main/keyword?${params}`)}
-              darkMode={darkMode}
-            >
-              <StyledKeywordIcon />
-              <span>연관 키워드</span>
             </StyledSidebarItemDiv>
           </Link>
         </div>

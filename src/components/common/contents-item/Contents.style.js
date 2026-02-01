@@ -9,12 +9,12 @@ export const StyledContentsDiv = styled.div`
   padding-top: 20px;
 
   border: ${(props) =>
-    props.isCheck ? "2px solid #43D2FF" : "1px solid #d3d3d3;"};
+    props.isCheck ? "2px solid #E56717" : "1px solid #d3d3d3;"};
   border-radius: 40px;
   background-color: ${(props) => (props.darkMode ? "#47484A" : "white")};
   color: ${(props) => (props.darkMode ? "white" : "")};
   &:hover {
-    border: ${(props) => (props.isCheck ? "" : "1px solid #43D2FF")};
+    border: ${(props) => (props.isCheck ? "" : "1px solid #E56717")};
   }
 `;
 

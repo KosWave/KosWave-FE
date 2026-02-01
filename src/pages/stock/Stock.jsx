@@ -178,7 +178,7 @@ export default function StockPage() {
 
             {isStockLoading ? (
               <StyledLoadingDiv darkMode={darkMode}>
-                <ClipLoader color={"#43D2FF"} loading={true} />
+                <ClipLoader color={"#E56717"} loading={true} />
               </StyledLoadingDiv>
             ) : stockError ? (
               <>

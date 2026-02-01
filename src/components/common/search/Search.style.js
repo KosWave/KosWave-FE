@@ -40,6 +40,6 @@ export const StyledSearchIcon = styled(IoSearch)`
   cursor:pointer;
 
   &:hover {
-    color: #43D2FF;
+    color: #E56717;
   }
 `;

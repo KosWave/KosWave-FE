@@ -65,16 +65,16 @@ export default function YoutubeVideo({ keyword }) {
     ],
   };
 
-  if (loading) return <ClipLoader color="#43d2ff"></ClipLoader>;
+  if (loading) return <ClipLoader color="#E56717"></ClipLoader>;
   if (!loading && (error || videos.length === 0))
     return !darkMode ? (
       <img
-        style={{ marginLeft: "2rem", width: "100%", height: "100%" }}
+        style={{ marginLeft: "1rem", width: "100%", height: "100%" }}
         src="/assets/images/undefined-error.svg"
       />
     ) : (
       <img
-        style={{ marginLeft: "2rem", width: "100%", height: "100%" }}
+        style={{ marginLeft: "1rem", width: "100%", height: "100%" }}
         src="/assets/images/undefined-error-darkmode.svg"
       />
     );

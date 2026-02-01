@@ -71,7 +71,7 @@ export const StyledSearchIcon = styled(IoSearchOutline)`
   top: 8%;
   cursor: pointer;
   :hover {
-    color: #43D2FF;
+    color: #E56717;
   }
 `;
 
@@ -110,7 +110,12 @@ export const StyledHotKeyword = styled.div`
   text-align: center;
   white-space: nowrap;
   border-radius: 20px;
-  background: linear-gradient(90deg, rgba(19, 227, 255, 1), rgba(3, 132, 250, 0.7), rgba(106, 120, 244, 0.9));
+  background: linear-gradient(
+  90deg,
+  rgba(255, 173, 51, 1),    /* 밝은 오렌지 */
+  rgba(255, 140, 0, 0.8),   /* 클래식 오렌지 */
+  rgba(255, 94, 0, 0.9)     /* 딥 오렌지 */
+);
   color: white;
   font-weight: 700;
 & p {

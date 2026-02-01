@@ -13,12 +13,12 @@ export const StyledNav = styled.nav`
 export const StyledNavItem = styled.a`
   text-decoration: none;
   font-size: 15px;
-  color: ${(props) => (props.active ? "#43d2ff" : "rgba(0, 0, 0, 0.4)")};
+  color: ${(props) => (props.active ? "#E56717" : "rgba(0, 0, 0, 0.4)")};
   padding: 8px 30px;
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 10px;
-  border-color: ${(props) => (props.active ? "#43d2ff" : "")};
+  border-color: ${(props) => (props.active ? "#E56717" : "")};
   background-color: ${(props) => (props.active ? "#ffffff" : "transparent")};
   transition: background-color 0.15s ease;
 

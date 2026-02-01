@@ -88,7 +88,7 @@ export const CustomArrow = styled.div`
   position: absolute;
   
   &:hover {
-    color: #43D2FF;
+    color: #E56717;
   }
 
   &.slick-prev {

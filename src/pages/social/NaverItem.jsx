@@ -164,7 +164,7 @@ const NaverItem = () => {
               {isGraphVisible ? (
                 isLoading ? (
                   <StyledLoadingDiv>
-                    <ClipLoader color={"#43D2FF"} loading={true} />
+                    <ClipLoader color={"#E56717"} loading={true} />
                   </StyledLoadingDiv>
                 ) : (
                   <NaverGraph data={data[0].data} />

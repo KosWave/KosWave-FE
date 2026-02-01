@@ -33,12 +33,12 @@ export const CustomTabs = styled(Nav)`
   .nav-link {
     color: ${(props) => (props.darkMode ? "white" : "black")};
     &:hover {
-      background-color: #43D2FF;
+      background-color: #E56717;
       color:white
     }
     &.active {
       color: white;
-      background-color:#43D2FF;
+      background-color:#E56717;
       
     }
   }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import apiClient from "~/utils/axios";
 import { useSelector } from 'react-redux';
 import { 
   NewsListContainer, 
@@ -18,7 +18,7 @@ export default function Newstab({id}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/api/stocknews?symbol=${id}`); 
+        const response = await apiClient.get(`/api/stocknews?symbol=${id}`); 
         const flattenedNews = response.data.flat(); 
         setNews(flattenedNews);
       } catch (error) {

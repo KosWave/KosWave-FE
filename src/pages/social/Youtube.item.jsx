@@ -13,7 +13,7 @@ import {
 import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 
 const fetchYoutubeStockData = async (
   keyword,
@@ -21,7 +21,7 @@ const fetchYoutubeStockData = async (
   setLoadError,
   loadError
 ) => {
-  const response = await axios.get("/api/trends/youtube", {
+  const response = await apiClient.get("/api/trends/youtube", {
     params: {
       keyword: keyword,
       startTime: startTime,

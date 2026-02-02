@@ -1,4 +1,4 @@
-import axios from "axios";
+import apiClient from "~/utils/axios";
 
 const BASE_URL = "/api/social";
 
@@ -32,7 +32,7 @@ export const getInstagramSocialTrend = async function getInstagramSocialInfo(
   keyword
 ) {
   try {
-    const { data } = await axios.get(`${BASE_URL}/instagram`, {
+    const { data } = await apiClient.get(`${BASE_URL}/instagram`, {
       params: { word: keyword },
     });
     console.log("data:", data);
@@ -48,7 +48,7 @@ export const getInstagramSocialTrend = async function getInstagramSocialInfo(
 
 export const getInstagramPosts = async (keyword) => {
   try {
-    const result = await axios.get("/api/news/instagram", {
+    const result = await apiClient.get("/api/news/instagram", {
       params: {
         keyword: keyword,
       },

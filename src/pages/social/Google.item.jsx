@@ -10,13 +10,13 @@ import {
   StyledGoogleChartNewsDiv,
   StyledLoadingDiv,
 } from "./Google.style";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
 
 const fetchGoogleStockData = async (keyword, startTime) => {
-  const response = await axios.get("/api/trends/google", {
+  const response = await apiClient.get("/api/trends/google", {
     params: {
       keyword: keyword,
       startTime: startTime,

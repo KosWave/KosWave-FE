@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyledTable, StyledChangeRate, StyledPriceChange, LoaderWrapper } from './Pricetab.style';
-import axios from 'axios';
+import apiClient from "~/utils/axios";
 import { ClipLoader } from 'react-spinners';
 import { useSelector } from 'react-redux';
 export default function Pricetab({id}) {
@@ -8,7 +8,7 @@ export default function Pricetab({id}) {
     const [dailyPrice, setDailyPrice] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`/api/daily-price?symbol=${id}&period=D`); 
+            const response = await apiClient.get(`/api/daily-price?symbol=${id}&period=D`); 
             setDailyPrice(response.data.output);
         };
         fetchData();

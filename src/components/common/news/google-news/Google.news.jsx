@@ -8,7 +8,7 @@ import {
   StyledBlurDiv,
   StyledContentsDiv,
 } from "./Google.style";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
 import Skeleton from "react-loading-skeleton";
@@ -37,7 +37,7 @@ function timeAgo(dateString) {
 }
 
 const fetchGoogleNews = async (keyword) => {
-  const result = await axios.get("/api/news/google", {
+  const result = await apiClient.get("/api/news/google", {
     params: {
       keyword: keyword,
     },

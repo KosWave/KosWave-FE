@@ -4,7 +4,7 @@ import ContentHeader from "./contents-item/ContentHeader";
 import NormalGraph from "../../components/common/graphs/normalGraph/NormalGraph";
 import { Contents } from "./contents-item/Contents.style";
 import { useQuery } from "react-query";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { ClipLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 
@@ -25,7 +25,7 @@ const fetchNaverLabData = async (
   endDate,
   periodOffset
 ) => {
-  const response = await axios.post("/api/trends/naver", {
+  const response = await apiClient.post("/api/trends/naver", {
     keywords,
     startDate,
     endDate,

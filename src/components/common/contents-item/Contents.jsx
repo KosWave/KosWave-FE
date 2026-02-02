@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { useQuery } from "react-query";
 import {
   StyledContentsDiv,
@@ -14,7 +14,7 @@ import Skeleton from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 
 const fetchDailyPrice = async (symbol) => {
-  const result = await axios.get("/api/daily-price", {
+  const result = await apiClient.get("/api/daily-price", {
     params: {
       symbol: symbol,
       period: "D",

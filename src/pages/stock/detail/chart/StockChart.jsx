@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
-import axios from 'axios';
+import apiClient from "~/utils/axios";
 import Nav from 'react-bootstrap/Nav';
 import { useSelector } from 'react-redux';
 import {StyledInput, FlexContainer, Label, CustomTabs} from './StockChart.style';
@@ -34,7 +34,7 @@ export const StockChart = ({symbol}) => {
     let apiUrl = `/api/period-price?symbol=${symbol}&startDate=${startDate}&endDate=${endDate}&period=${period}`;
 
     try {
-      const response = await axios.get(apiUrl);
+      const response = await apiClient.get(apiUrl);
      setChartData(response.data); 
     } catch (error) {
       console.error('Error fetching chart data:', error);

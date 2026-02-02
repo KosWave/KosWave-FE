@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import Slider from "react-slick";
 import {
   SliderContainer,
@@ -27,7 +27,7 @@ export default function YoutubeVideo({ keyword }) {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get("/api/news/youtube", {
+        const response = await apiClient.get("/api/news/youtube", {
 
           params: { keyword: keyword, limit: 5 },
         });

@@ -1,14 +1,12 @@
-import axios from "axios";
+import apiClient from "~/utils/axios";
 
 const BASE_URL = "/api/keyword";
-const service = axios.create({
-  baseURL: BASE_URL,
-});
+const service = apiClient;
 
 //1. 연관키워드 가져오기
 export async function relatedKeywordAPI({ keyword }) {
   try {
-    const resp = await service.post("/", {
+    const resp = await service.post(`${BASE_URL}/`, {
       keyword: keyword,
     });
     return resp.data;
@@ -22,7 +20,7 @@ export async function relatedNewsAPI({ exWord, keyword }) {
   try {
     console.log("FE->BE 연관키워드 API 요청 수행");
 
-    const resp = await service.post("/news", {
+    const resp = await service.post(`${BASE_URL}/news`, {
       exWord: exWord,
       keyword: keyword,
     });

@@ -18,7 +18,7 @@ import Header from "../../components/common/header/Header";
 import Sidebar from "../../components/common/sidebar/Sidebar";
 import StockChart from "./Stock.chart";
 import { useQuery } from "react-query";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { ClipLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import Skeleton from "react-loading-skeleton";
@@ -26,7 +26,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from "react";
 
 const fetchStockData = async (keywords, startDate, endDate, periodOffset) => {
-  const response = await axios.post("/api/trends/naver", {
+  const response = await apiClient.post("/api/trends/naver", {
     keywords,
     startDate,
     endDate,
@@ -37,7 +37,7 @@ const fetchStockData = async (keywords, startDate, endDate, periodOffset) => {
 };
 
 const fetchCompanyData = async (keyword) => {
-  const response = await axios.get("/api/company", {
+  const response = await apiClient.get("/api/company", {
     params: {
       word: keyword,
     },
@@ -110,7 +110,7 @@ export default function StockPage() {
     const fetchDailyPrice = async () => {
       if (companyData && companyData.length > 0) {
         try {
-          const result = await axios.get("/api/daily-price", {
+          const result = await apiClient.get("/api/daily-price", {
             params: {
               symbol: companyData[0].code,
               period: "D",
@@ -133,7 +133,7 @@ export default function StockPage() {
 
   useEffect(() => {
     const test = async () => {
-      const result = await axios.get("/api/stockInfo", {
+      const result = await apiClient.get("/api/stockInfo", {
         params: {
           word: curCompanyName,
         },

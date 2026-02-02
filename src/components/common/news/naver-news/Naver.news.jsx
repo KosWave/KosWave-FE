@@ -12,7 +12,7 @@ import {
 import { StyledBlurDiv } from "./Naver.style";
 import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { isNullOrUndef } from "chart.js/helpers";
 import Skeleton from "react-loading-skeleton";
 
@@ -67,7 +67,7 @@ const fetchNaverNews = async (keyword, props) => {
     .slice(0, 10)
     .replace(/-/g, "");
 
-  const result = await axios.post("/api/news/naver", {
+  const result = await apiClient.post("/api/news/naver", {
     analysisMonths: 0,
     categorySetName: "TSN",
     endDate: endDate,

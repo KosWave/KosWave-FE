@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { Container, Image, Column, Number, Label } from "./Instagram.style";
 import { ClipLoader } from "react-spinners";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ export const getInstagramSocialTrend = async function getInstagramSocialInfo(
   keyword
 ) {
   try {
-    const { data } = await axios.get(`${BASE_URL}/instagram`, {
+    const { data } = await apiClient.get(`${BASE_URL}/instagram`, {
       params: { word: keyword }, // Use 'params' to pass query parameters
     });
     console.log("data:", data);

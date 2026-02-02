@@ -13,12 +13,12 @@ import { timeAgo } from "~/utils/utils";
 import { StyledBlurDiv } from "./Youtube.data.style";
 import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import Skeleton from "react-loading-skeleton";
 import { decode } from "html-entities";
 
 const fetchYoutubeData = async (keyword) => {
-  const result = await axios.get("/api/news/youtube", {
+  const result = await apiClient.get("/api/news/youtube", {
     params: {
       keyword: keyword,
       limit: 20,

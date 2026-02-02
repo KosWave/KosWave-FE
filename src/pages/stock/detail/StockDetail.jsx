@@ -16,7 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Maintab from "./maintab/Maintab";
 import Pricetab from "./pricetab/Pricetab";
 import Newstab from "./newstab/Newstab";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ChartModal from "./chart/ChartModal";
@@ -65,7 +65,7 @@ export default function StockDetail() {
     let ws;
     const fetchDailyData = async () => {
       try {
-        const response = await axios.get(
+        const response = await apiClient.get(
           `/api/daily-price?symbol=${code}&period=D`
         );
         setLastPrice(response.data.output[0]);

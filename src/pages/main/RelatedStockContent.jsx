@@ -4,7 +4,7 @@ import StockContent from "./contents-item/StockContent";
 import { Contents, StyledContentsDiv } from "./contents-item/Contents.style";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { StyledMainContentDiv } from "./Main.style";
 import { useSelector } from "react-redux";
 
@@ -20,7 +20,7 @@ export default function RelatedStock({ keyword }) {
     setCompaines([]);
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/api/company?word=${keyword}`);
+        const response = await apiClient.get(`/api/company?word=${keyword}`);
         const newCompanies = [];
         for (let i = 0; i < STOCK_SIZE; i++) {
           newCompanies.push(response.data.message[i]);

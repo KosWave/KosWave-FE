@@ -6,7 +6,7 @@ import {
   StyledContentsTitle,
   StyledContentsMiniTitle,
 } from "./Contents.style";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import { useSelector } from "react-redux";
 
 export default function StockContent(props) {
@@ -28,7 +28,7 @@ export default function StockContent(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
+        const response = await apiClient.get(
           `/api/current-price?symbol=${companyCode}`
         );
         setRatePerYesterday(response.data.output.prdy_ctrt);

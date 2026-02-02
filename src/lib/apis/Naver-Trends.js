@@ -1,4 +1,4 @@
-import axios from "axios";
+import apiClient from "~/utils/axios";
 
 
 export async function fetchNaverStockData(
@@ -9,7 +9,7 @@ export async function fetchNaverStockData(
     setLoadError
   ) {
     setLoadError(false);
-    const response = await axios.post("/api/trends/naver", {
+    const response = await apiClient.post("/api/trends/naver", {
       keywords,
       startDate,
       endDate,

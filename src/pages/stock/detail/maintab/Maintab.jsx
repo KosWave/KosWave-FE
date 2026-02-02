@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from "~/utils/axios";
 import { StyledMainTabDiv, Table, Th, Td, Thead, Tbody } from './Maintab.style';
 import { useSelector } from 'react-redux';
 export default function Maintab({id}) {
@@ -8,7 +8,7 @@ export default function Maintab({id}) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/api/current-price?symbol=${id}`);
+                const response = await apiClient.get(`/api/current-price?symbol=${id}`);
                 setCurrentPrice(response.data.output);
             } catch (error) {
                 console.error('Error fetching data:', error);

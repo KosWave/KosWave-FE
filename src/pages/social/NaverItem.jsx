@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import axios from "axios";
+import apiClient from "~/utils/axios";
 import CountrySelectBar from "../../components/common/chart-select-bar/country/Country.select.bar";
 import PeriodSelectBar from "../../components/common/chart-select-bar/period/Period.select.bar";
 import GoogleNews from "../../components/common/news/google-news/Google.news";
@@ -25,7 +25,7 @@ const fetchNaverStockData = async (
   setLoadError
 ) => {
   setLoadError(false);
-  const response = await axios.post("/api/trends/naver", {
+  const response = await apiClient.post("/api/trends/naver", {
     keywords,
     startDate,
     endDate,

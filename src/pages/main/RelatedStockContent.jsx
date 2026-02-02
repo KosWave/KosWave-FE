@@ -9,7 +9,7 @@ import { StyledMainContentDiv } from "./Main.style";
 import { useSelector } from "react-redux";
 
 export default function RelatedStock({ keyword }) {
-  const STOCK_SIZE = 6;
+  const MAX_STOCK_SIZE = 6;
   const STOCK_CONTENT_WIDTH = "15%";
   const STOCK_CONTENT_HEIGHT = "90px";
 
@@ -21,11 +21,12 @@ export default function RelatedStock({ keyword }) {
     const fetchData = async () => {
       try {
         const response = await apiClient.get(`/api/company?word=${keyword}`);
-        const newCompanies = [];
-        for (let i = 0; i < STOCK_SIZE; i++) {
-          newCompanies.push(response.data.message[i]);
-        }
-        setCompaines(newCompanies);
+        const dataArray = response.data.message || [];
+        // 최대 6개까지만 가져오고, null/undefined 제거
+        const limitedCompanies = dataArray
+          .slice(0, MAX_STOCK_SIZE)
+          .filter(company => company != null);
+        setCompaines(limitedCompanies);
       } catch (error) {
         console.error("Error fetching the news:", error);
       }
@@ -44,14 +45,14 @@ export default function RelatedStock({ keyword }) {
       <Contents darkMode={darkMode}>
         {/* 내용이 들어오면 변경 */}
         {companies.length === 0 ? (
-          Array.from({ length: STOCK_SIZE }).map((elem, index) => (
+          Array.from({ length: MAX_STOCK_SIZE }).map((elem, index) => (
             <StyledContentsDiv
               width={STOCK_CONTENT_WIDTH}
               height={STOCK_CONTENT_HEIGHT}
               darkMode={darkMode}
+              key={index}
             >
               <Skeleton
-                key={index}
                 width={140}
                 height={20}
                 style={{ margin: "0.5rem" }}
@@ -59,7 +60,7 @@ export default function RelatedStock({ keyword }) {
               <Skeleton width={70} height={15} />
             </StyledContentsDiv>
           ))
-        ) : companies[0].similarity == 0 ? (
+        ) : companies[0]?.similarity == 0 ? (
           darkMode ? (
             <img
               style={{ width: "952px", height: "227px" }}
@@ -72,9 +73,9 @@ export default function RelatedStock({ keyword }) {
             ></img>
           )
         ) : (
-          companies.map((company) => (
+          companies.map((company, index) => (
             <StockContent
-              key={company.id} // 고유한 key 속성을 사용하세요. 예를 들어 company.id 또는 company.name 등을 사용하세요.
+              key={company?.code || company?.id || index}
               company={company}
               width={STOCK_CONTENT_WIDTH}
               height={STOCK_CONTENT_HEIGHT}

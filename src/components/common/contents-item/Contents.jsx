@@ -78,9 +78,9 @@ export default function Contents(props) {
   const currentData = data.output[0];
   const isPriceIncrease = currentData.prdy_vrss_sign === "2";
   const priceChangeIcon = isPriceIncrease ? (
-    <img src="/assets/images/up-icon.png" alt="Increase" />
+    <img src="/assets/images/up-icon.png" alt="Increase"/>
   ) : (
-    <img src="/assets/images/down-icon.png" alt="Decrease" />
+    <img src="/assets/images/down-icon.png" alt="Decrease"/>
   );
 
   const onClickItem = (e) => {

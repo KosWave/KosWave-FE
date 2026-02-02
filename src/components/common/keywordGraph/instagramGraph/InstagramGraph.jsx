@@ -10,6 +10,8 @@ import {
   Legend,
   BarElement,
   CategoryScale,
+  BarController,
+  LineController,
 } from "chart.js";
 import styled from "styled-components";
 import { getInstagramSocialTrend } from "../../../../lib/apis/social";
@@ -22,7 +24,9 @@ ChartJS.register(
   Tooltip,
   Legend,
   BarElement,
-  CategoryScale
+  CategoryScale,
+  BarController,
+  LineController
 );
 
 const ChartWrapper = styled.div`

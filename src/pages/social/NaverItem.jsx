@@ -171,7 +171,7 @@ const NaverItem = () => {
                 )
               ) : (
                 <div
-                  style={{ marginTop: "20px", width: "600px", height: "400px" }}
+                  style={{ marginTop: "20px", width: "500px", height: "400px" }}
                 ></div>
               )}
             </div>

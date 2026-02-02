@@ -20,9 +20,21 @@ export const StyledStockHeaderDiv = styled.div`
   margin-bottom: 40px;
 
   color: ${(props) => (props.darkMode ? "white" : "")};
+  word-break: keep-all;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   & strong {
     font-size: 22px;
     margin-right: 5px;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 
   & span:nth-of-type(1) {
@@ -35,12 +47,23 @@ export const StyledStockHeaderDiv = styled.div`
 
 export const StyledStockBodyDiv = styled.div`
   width: 100%;
-  height: 700px;
+  height: auto;
+  min-height: 700px;
   display: flex;
   justify-content: space-between;
   align-items: start;
   padding: 50px;
   padding-top: 0px;
+  
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 export const StyledBodyCompanyDiv = styled.div`
@@ -65,6 +88,12 @@ export const StyledLoadingDiv = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${(props) => (props.darkMode ? "#47484A" : "white")};
+  
+  @media (max-width: 1024px) {
+    width: 90vw;
+    height: 400px;
+    margin-left: 0;
+  }
 `;
 
 export const StyledContentsDiv = styled.div`

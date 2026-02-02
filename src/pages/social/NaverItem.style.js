@@ -17,6 +17,11 @@ export const StyledNaverItemDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 export const StyledNaverHeaderDiv = styled.div`
   width: 100%;
@@ -33,6 +38,11 @@ export const StyledNaverChartNewsDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 
   & > div > span:first-child {
     font-size: 23px;

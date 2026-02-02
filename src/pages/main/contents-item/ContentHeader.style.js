@@ -8,6 +8,7 @@ export const HeaderContentDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  padding-top: 0px;
   width: 100%;
   flex-wrap: wrap;
 `;

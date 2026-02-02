@@ -12,6 +12,7 @@ import Instagram from "./contents-item/Instagram";
 import { useSelector } from "react-redux";
 export default function RelatedSns({ keyword }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
+  const url = "/main/social?name=" + keyword;
   return (
     <StyledMainContentDiv darkMode={darkMode}>
       <div
@@ -26,7 +27,7 @@ export default function RelatedSns({ keyword }) {
           imgUrl="/assets/images/total-sns.png"
           keyword={keyword}
           description="에 대한 SNS 반응이에요."
-          toLink="/main/social"
+          toLink= {url}
         />
         <StyledTitleDiv>"{keyword}" 에 대한 유튜브 반응</StyledTitleDiv>
         <YoutubeContent darkMode={darkMode}>

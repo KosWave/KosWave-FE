@@ -37,6 +37,7 @@ const fetchNaverLabData = async (
 
 export default function SearchContent({ keyword }) {
   const [percent, setPercent] = useState(NaN);
+  const url = "/main/social?name=" + keyword;
   const [currentWeekData, setCurrentWeekData] = useState([]);
   const [currentWeekDates, setCurrentWeekDates] = useState([]);
   const [startDate, setStartDate] = useState(() => {
@@ -187,7 +188,7 @@ export default function SearchContent({ keyword }) {
             </>
           )
         }
-        toLink="/main/social"
+        toLink={url}
       />
       <Contents darkMode={darkMode}>
         {error || !isLoading ? (

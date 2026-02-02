@@ -7,7 +7,6 @@ import {
   StyledImageDiv,
   StyledNewsItemHeaderDiv,
 } from "./instagram.data.style";
-import Chart from "chart.js/auto";
 import { weekTimeAgo } from "~/utils/utils";
 import insta from "~/images/instagram.png";
 import { StyledBlurDiv } from "./instagram.data.style";

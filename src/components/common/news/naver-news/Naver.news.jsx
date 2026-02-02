@@ -60,32 +60,48 @@ function highlightedText(text, highlights) {
 
 const fetchNaverNews = async (keyword, props) => {
   props.setLoadError(false);
-  const today = new Date();
-  const endDate = today.toISOString().slice(0, 10).replace(/-/g, "");
-  const startDate = new Date(today.setDate(today.getDate() - 7))
-    .toISOString()
-    .slice(0, 10)
-    .replace(/-/g, "");
 
-  const result = await apiClient.post("/api/news/naver", {
-    analysisMonths: 0,
-    categorySetName: "TSN",
-    endDate: endDate,
-    ex: null,
-    excludeRT: false,
-    excludeWordOperators: "||",
-    includeWordOperators: "||",
-    keyword: keyword,
-    keywordFilterExcludes: null,
-    keywordFilterIncludes: null,
-    period: 0,
-    scoringKeyword: keyword,
-    sources: "blog,news",
-    startDate: startDate,
-    synonym: null,
-    topN: 500,
-  });
-  return result.data;
+  try {
+    // 1. 백엔드 호출
+    const response = await apiClient.get("/api/news/naver", {
+      params: { keyword: keyword }
+    });
+
+    // 2. 응답 데이터 확인 (배열인지 확인)
+    // response.data가 바로 [ {...}, {...} ] 배열인 상황입니다.
+    const newsItems = response.data;
+
+    if (!Array.isArray(newsItems)) return [];
+
+    // 3. 데이터 매핑
+    const mappedData = newsItems.map((item) => {
+      // 날짜 변환: "Thu, 27 Nov 2025 13:42:00 +0900" -> "20251127134200"
+      const d = new Date(item.pubDate);
+      const formattedDate = [
+        d.getFullYear(),
+        ('0' + (d.getMonth() + 1)).slice(-2),
+        ('0' + d.getDate()).slice(-2),
+        ('0' + d.getHours()).slice(-2),
+        ('0' + d.getMinutes()).slice(-2),
+        ('0' + d.getSeconds()).slice(-2)
+      ].join('');
+
+      return {
+        url: item.link,
+        writer: "네이버 뉴스", 
+        documentDate: formattedDate, // timeAgo 함수가 요구하는 14자리 포맷
+        title: item.title.replace(/<[^>]*>?/gm, ''), // <b> 태그 제거
+        maxSentence: item.description.replace(/<[^>]*>?/gm, ''), // <b> 태그 제거
+        highlight: [keyword] 
+      };
+    });
+
+    return mappedData;
+  } catch (err) {
+    console.error("뉴스 로딩 에러:", err);
+    props.setLoadError(true);
+    throw err;
+  }
 };
 
 export default function NaverNews(props) {
@@ -93,7 +109,6 @@ export default function NaverNews(props) {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const {
     data = [],
-    error,
     isLoading,
   } = useQuery(["naverNews", keyword], () => fetchNaverNews(keyword, props), {
     enabled: !!keyword,

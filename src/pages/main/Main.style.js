@@ -12,7 +12,7 @@ export const MainBody = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
-  justify-contents: center;
+  justify-items: center;
 `;
 
 export const MainContent = styled.div`
@@ -35,4 +35,16 @@ export const StyledMainContentDiv = styled.div`
   overflow-x: auto;
   white-space: nowrap;
   position: relative;
+`;
+
+export const StyledContentWrapper = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;

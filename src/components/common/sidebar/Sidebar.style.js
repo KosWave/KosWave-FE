@@ -17,6 +17,39 @@ export const StyledSidebarDiv = styled.div`
     props.darkMode ? "none" : "1px solid rgba(0, 0, 0, 0.2)"};
   background-color: ${(props) => (props.darkMode ? "rgb(35,35,35)" : "white")};
   padding-top: 20px;
+
+  transition: transform 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 1001;
+    background-color: ${(props) => (props.darkMode ? "rgb(35,35,35)" : "white")};
+    transform: ${(props) => (props.isOpen ? "translateX(0)" : "translateX(-100%)")};
+    box-shadow: ${(props) => (props.isOpen ? "2px 0 10px rgba(0,0,0,0.5)" : "none")};
+  }
+`;
+
+export const StyledBackdrop = styled.div`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: ${(props) => (props.isOpen ? 1 : 0)};
+    pointer-events: ${(props) => (props.isOpen ? "auto" : "none")};
+    transition: opacity 0.3s ease-in-out;
+  }
 `;
 
 export const StyledSidebarInfoDiv = styled.div`
@@ -61,8 +94,8 @@ export const StyledSidebarItemDiv = styled.div`
 
   &:hover {
     ${({ active }) =>
-      !active &&
-      css`
+    !active &&
+    css`
         background-color: #aaaaaa;
         border-radius: 50px;
 

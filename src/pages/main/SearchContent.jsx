@@ -124,7 +124,7 @@ export default function SearchContent({ keyword }) {
               {Math.round(percent) > 0 && (
                 <>
                   <p style={{ marginTop: "10px" }}>
-                    검색량이 전 주에 비해
+                    검색량이 전 주 대비
                     <strong
                       style={{
                         fontSize: "30px",
@@ -150,7 +150,7 @@ export default function SearchContent({ keyword }) {
               {Math.round(percent) < 0 && (
                 <>
                   <p style={{ marginTop: "10px" }}>
-                    검색량이 전 주에 비해
+                    검색량이 전 주 대비
                     <strong
                       style={{
                         fontSize: "30px",
@@ -238,7 +238,7 @@ export default function SearchContent({ keyword }) {
               color={[66, 133, 244]}
               lineSpeed={0.05}
               barSpeed={0.05}
-              width={500}
+              width={300}
               darkMode={darkMode}
             />
           )

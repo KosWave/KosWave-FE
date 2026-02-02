@@ -35,26 +35,39 @@ export default function Instagram({ keyword }) {
 
   const darkMode = useSelector((state) => state.theme.darkMode);
   useEffect(() => {
+    let ignore = false;
+    setData([]);
+    setTopTags([]);
+    setTagInfo([]);
+    setLoading(true);
+    setError(false);
+
     async function fetchData(keyword) {
-      setData([]);
-      setTopTags([]);
-      setTagInfo([]);
       try {
         const instagramInfo = await getInstagramSocialTrend(keyword);
+
+        if (ignore) return;
         setLoading(false);
+
         if (!instagramInfo) return;
-        if(instagramInfo === null) return;
+
         setData(instagramInfo.trendData);
         setTopTags(instagramInfo.topTags);
         setTagInfo(instagramInfo.tagInfo);
-
       } catch (error) {
-        setError(true);
-        console.error("Error fetching Instagram data", error);
+        if (!ignore) {
+          setError(true);
+          setLoading(false);
+          console.error("Error fetching Instagram data", error);
+        }
       }
     }
 
     fetchData(keyword);
+
+    return () => {
+      ignore = true;
+    };
   }, [keyword]);
 
   if (loading) return <ClipLoader color="#E56717"></ClipLoader>;

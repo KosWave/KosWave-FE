@@ -14,13 +14,19 @@ export default function RelatedStock({ keyword }) {
   const STOCK_CONTENT_HEIGHT = "90px";
 
   const [companies, setCompaines] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {
+    let ignore = false;
     setCompaines([]);
+    setIsLoading(true);
+
     const fetchData = async () => {
       try {
         const response = await apiClient.get(`/api/company?word=${keyword}`);
+        if (ignore) return;
+
         const dataArray = response.data.message || [];
         // 최대 6개까지만 가져오고, null/undefined 제거
         const limitedCompanies = dataArray
@@ -28,10 +34,16 @@ export default function RelatedStock({ keyword }) {
           .filter(company => company != null);
         setCompaines(limitedCompanies);
       } catch (error) {
-        console.error("Error fetching the news:", error);
+        if (!ignore) console.error("Error fetching the news:", error);
+      } finally {
+        if (!ignore) setIsLoading(false);
       }
     };
     fetchData();
+
+    return () => {
+      ignore = true;
+    };
   }, [keyword]);
 
   return (
@@ -44,7 +56,7 @@ export default function RelatedStock({ keyword }) {
       ></ContentHeader>
       <Contents darkMode={darkMode}>
         {/* 내용이 들어오면 변경 */}
-        {companies.length === 0 ? (
+        {isLoading ? (
           Array.from({ length: MAX_STOCK_SIZE }).map((elem, index) => (
             <StyledContentsDiv
               width={STOCK_CONTENT_WIDTH}
@@ -60,7 +72,7 @@ export default function RelatedStock({ keyword }) {
               <Skeleton width={70} height={15} />
             </StyledContentsDiv>
           ))
-        ) : companies[0]?.similarity == 0 ? (
+        ) : companies.length === 0 || companies[0]?.similarity == 0 ? (
           darkMode ? (
             <img
               style={{ width: "952px", height: "227px" }}

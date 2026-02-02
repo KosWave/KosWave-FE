@@ -184,7 +184,8 @@ export default function StockPage() {
               <>
                 <div
                   style={{
-                    width: "800px",
+                    width: "100%",
+                    maxWidth: "800px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -229,7 +230,7 @@ export default function StockPage() {
               </StyledTitleDiv>
             </StyledHeaderChart>
             <div
-              style={{ position: "relative", height: "645px", width: "600px" }}
+              style={{ position: "relative", height: "645px", width: "100%", maxWidth: "600px" }}
             >
               <StyledBodyCompanyDiv>
                 {isCompanyLoading || !companyData ? (

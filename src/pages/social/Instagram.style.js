@@ -15,6 +15,11 @@ export const StyledSocialInstagramDiv = styled.div`
 export const StyledInstagramItemDiv = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 export const StyledInstagramHeaderDiv = styled.div`
   display: flex;
@@ -30,6 +35,11 @@ export const StyledInstagramChartNewsDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 
   & > div > span:first-child {
     font-size: 23px;

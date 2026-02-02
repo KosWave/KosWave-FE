@@ -46,7 +46,7 @@ const NormalChart = ({ data, zoom }) => {
 
   return (
     <ChartContainer>
-      <div ref={sketchRef} style={{ width: "600px", height: "400px" }}></div>
+      <div ref={sketchRef} style={{ width: "500px", height: "400px" }}></div>
     </ChartContainer>
   );
 };

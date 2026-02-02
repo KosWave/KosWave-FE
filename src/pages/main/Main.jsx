@@ -1,6 +1,11 @@
 import Header from "../../components/common/header/Header";
 import Sidebar from "../../components/common/sidebar/Sidebar";
-import { StyledMainDiv, MainBody, MainContent } from "./Main.style";
+import {
+  StyledMainDiv,
+  MainBody,
+  MainContent,
+  StyledContentWrapper,
+} from "./Main.style";
 import RelatedStockContent from "./RelatedStockContent";
 import { useSelector } from "react-redux";
 import SearchContent from "./SearchContent";
@@ -15,10 +20,10 @@ export default function MainPage() {
         <MainBody>
           <Header />
           <RelatedStockContent keyword={keyword}></RelatedStockContent>
-          <div style={{ width: "90%", display: "flex", flexDirection: "row", gap: "50px" }}>
+          <StyledContentWrapper>
             <SearchContent keyword={keyword}></SearchContent>
             <RelatedSns keyword={keyword}></RelatedSns>
-          </div>
+          </StyledContentWrapper>
         </MainBody>
       </MainContent>
     </StyledMainDiv>

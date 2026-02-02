@@ -12,9 +12,10 @@ export default function ContentHeader(props) {
         style={{
           textAlign: "top",
           display: "flex",
+          alignItems: "center",
         }}
       >
-        <img style={{ width: "60px", height: "60px" }} src={props.imgUrl}></img>
+        <img style={{ width: "40px", height: "40px" }} src={props.imgUrl}></img>
         <span
           style={{
             display: "flex",

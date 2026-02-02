@@ -25,22 +25,32 @@ export default function YoutubeVideo({ keyword }) {
 
   const darkMode = useSelector((state) => state.theme.darkMode);
   useEffect(() => {
+    let ignore = false;
+    setVideos([]);
+    setLoading(true);
+
     const fetchVideos = async () => {
       try {
         const response = await apiClient.get("/api/news/youtube", {
-
           params: { keyword: keyword, limit: 5 },
         });
-        setVideos(response.data.slice(0,5));
-        console.log(response.data.slice(0,5));
-        setLoading(false);
+        if (!ignore) {
+          setVideos(response.data.slice(0, 5));
+          setLoading(false);
+        }
       } catch (err) {
-        setError(err);
-        setLoading(false);
+        if (!ignore) {
+          setError(err);
+          setLoading(false);
+        }
       }
     };
 
     fetchVideos();
+
+    return () => {
+      ignore = true;
+    };
   }, [keyword]);
 
   const settings = {

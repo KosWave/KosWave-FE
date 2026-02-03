@@ -186,6 +186,7 @@ export default function SearchContent({ keyword }) {
           )
         }
         toLink="/main/social"
+        isShow="true"
       />
       <Contents darkMode={darkMode}>
         {error || !isLoading ? (

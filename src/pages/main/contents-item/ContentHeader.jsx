@@ -38,26 +38,28 @@ export default function ContentHeader(props) {
           </span>
         </span>
       </div>
-      <div
-        style={{
-          textAlign: "top",
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-        }}
-      >
-        <a href={props.toLink}>
-          <GlowIcon darkMode={darkMode}>
-            <HiChevronDoubleRight
-              style={{
-                color: darkMode ? "#F2F2F2" : "#00537A",
-                cursor: "pointer",
-                width: "38px",
-              }}
-            ></HiChevronDoubleRight>
-          </GlowIcon>
-        </a>
-      </div>
+      {!props.isShow && (
+        <div
+          style={{
+            textAlign: "top",
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
+          <a href={props.toLink}>
+            <GlowIcon darkMode={darkMode}>
+              <HiChevronDoubleRight
+                style={{
+                  color: darkMode ? "#F2F2F2" : "#00537A",
+                  cursor: "pointer",
+                  width: "38px",
+                }}
+              ></HiChevronDoubleRight>
+            </GlowIcon>
+          </a>
+        </div>
+      )}
     </HeaderContentDiv>
   );
 }

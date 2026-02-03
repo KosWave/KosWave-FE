@@ -26,7 +26,6 @@ export default function Header() {
   return (
     <StyledHeaderDiv>
       <StyledHeaderParentDiv>
-        <StyledMenuIcon darkMode={darkMode} onClick={() => dispatch(openSidebar())} />
         <Search width="900px" height="50px" />
       </StyledHeaderParentDiv>
     </StyledHeaderDiv>

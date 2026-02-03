@@ -24,7 +24,7 @@ export default function LandingSearch() {
   const navigate = useNavigate();
   const inputRef = useRef(null);
 
-  const keywords = ["토큰증권", "입시", "반도체", "항공", "롱패딩", "커피"];
+  const keywords = ["교육", "입시", "반도체", "항공", "롱패딩", "커피"];
 
   const onChangeText = (e) => {
     const { value } = e.target;

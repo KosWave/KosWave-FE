@@ -22,10 +22,10 @@ export default function SocialPage() {
           <Header />
         </div>
 
+        <NaverItem />
+        <InstagramItem />
         <GoogleItem />
         <YoutubeItem />
-        <InstagramItem />
-        <NaverItem />
       </StyledSocialInfoDiv>
       <ScrollToTopButton scrollRef={scrollRef} />
     </StyledSocialDiv>
